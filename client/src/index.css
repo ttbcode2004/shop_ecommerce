@@ -1,0 +1,55 @@
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+
+/* ===============================
+   Light Theme Colors
+   =============================== */
+@layer base {
+  :root {
+    --white1: #ffffff;
+    --white2: #fafafa;
+    --white3: #f5f5f5;
+    --black1: #000000;
+    --black2: #0b0b0f;
+    --black3: #2d2a2a;
+    --gray1: #767676;
+    --gray2: #e5e5e5;
+    --orange: #ef4444;
+  }
+}
+
+/* ===============================
+   Map vào Tailwind Colors
+   =============================== */
+@theme {
+  --color-white1: var(--white1);
+  --color-white2: var(--white2);
+  --color-white3: var(--white3);
+  --color-black1: var(--black1);
+  --color-black2: var(--black2);
+  --color-black3: var(--black3);
+  --color-gray1: var(--gray1);
+  --color-gray2: var(--gray2);
+  --color-orange: var(--orange);
+}
+
+.error{
+  background: orangered;
+}
+
+button{
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+select{
+  cursor: pointer;
+}
+option{
+  cursor: pointer;
+}
+
+a.active hr{
+    display: block;
+}
