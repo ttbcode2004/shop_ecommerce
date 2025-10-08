@@ -37,9 +37,8 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
   })
 );
-app.use(cors());
-app.use(cookieParser());
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(morgan('dev'));
 
