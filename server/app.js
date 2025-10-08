@@ -19,10 +19,9 @@ const dashboardRouter = require('./routes/dashboardRoutes');
 
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  process.env.FRONTEND_URL, // https://bach-shop-frontend.vercel.app
-];
+const allowedOrigins = [ "http://localhost:5173", process.env.FRONTEND_URL, // https://bach-shop-frontend.vercel.app 
+  ];
+
 
 app.use(
   cors({
@@ -34,13 +33,13 @@ app.use(
       }
     },
     credentials: true,
-    methods: ["GET", "POST", "DELETE", "PATCH", "OPTIONS"],
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization", "Cache-Control"],
   })
 );
-
-app.options("*", cors());
+app.use(cors());
 app.use(cookieParser());
+
 app.use(express.json());
 app.use(morgan('dev'));
 
