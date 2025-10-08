@@ -8,36 +8,34 @@ FRONTEND: https://bach-shop-frontend.vercel.app/
 | 🔥 **Firebase**        | Xác thực người dùng (login/register bằng email hoặc Google, reset password). |
 | 🪄 **React Router v6** | Định tuyến (Routing) giữa các trang.                                         |
 | 💬 **React Toastify**  | Hiển thị thông báo thành công/lỗi toàn cục.                                  |
-| 🎨 **Tailwind CSS**    | Thiết kế giao diện hiện đại, responsive.     
-|
+| 🎨 **Tailwind CSS**    | Thiết kế giao diện hiện đại, responsive.                                     |
+
 📁 Cấu trúc route chính
-/auth
- ├─ /login           → Đăng nhập
- ├─ /register        → Đăng ký
- └─ /forgot          → Quên mật khẩu
+| **Nhóm Route** | **Đường dẫn (Path)** | **Mô tả**                              |
+| -------------- | -------------------- | -------------------------------------- |
+| **/auth**      | `/auth/login`        | Đăng nhập                              |
+|                | `/auth/register`     | Đăng ký                                |
+|                | `/auth/forgot`       | Quên mật khẩu                          |
+| **/admin**     | `/admin/dashboard`   | Thống kê tổng quan                     |
+|                | `/admin/products`    | Quản lý sản phẩm                       |
+|                | `/admin/orders`      | Quản lý đơn hàng                       |
+|                | `/admin/users`       | Danh sách người dùng                   |
+|                | `/admin/vouchers`    | Mã giảm giá                            |
+|                | `/admin/delivers`    | Đơn vị vận chuyển                      |
+|                | `/admin/account`     | Tài khoản admin                        |
+| **/**          | `/`                  | Trang chủ (Home)                       |
+|                | `/about`             | Giới thiệu                             |
+|                | `/products/:slug`    | Chi tiết sản phẩm                      |
+|                | `/cart`              | Giỏ hàng                               |
+|                | `/wishlist`          | Danh sách yêu thích                    |
+|                | `/placeOrder`        | Đặt hàng                               |
+|                | `/account`           | Tài khoản người dùng *(Private)*       |
+|                | `/reset-password`    | Đặt lại mật khẩu *(Firebase)*          |
+|                | `/payment-success`   | Thanh toán thành công *(MoMo / VNPay)* |
+|                | `/:slug`             | Trang danh mục sản phẩm                |
+|                | `/unauth-page`       | Trang từ chối truy cập                 |
+|                | `*`                  | Trang 404 - Không tìm thấy trang       |
 
-/admin
- ├─ /dashboard       → Thống kê tổng quan
- ├─ /products        → Quản lý sản phẩm
- ├─ /orders          → Quản lý đơn hàng
- ├─ /users           → Danh sách người dùng
- ├─ /vouchers        → Mã giảm giá
- ├─ /delivers        → Đơn vị vận chuyển
- └─ /account         → Tài khoản admin
-
-/
- ├─ / (Home)         → Trang chủ
- ├─ /about           → Giới thiệu
- ├─ /products/:slug  → Chi tiết sản phẩm
- ├─ /cart            → Giỏ hàng
- ├─ /wishlist        → Danh sách yêu thích
- ├─ /placeOrder      → Đặt hàng
- ├─ /account         → Tài khoản người dùng (Private)
- ├─ /reset-password  → Đặt lại mật khẩu (Firebase)
- ├─ /payment-success → Thanh toán thành công
- ├─ /:slug           → Trang hiển thị các sản phẩm
- ├─ /unauth-page     → Trang từ chối truy cập
- └─ * (NotFound)     → 404 - Không tìm thấy trang
 
  BACKEND: https://bach-shop-backend.onrender.com/
  
