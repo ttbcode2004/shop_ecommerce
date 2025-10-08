@@ -19,7 +19,7 @@ const dashboardRouter = require('./routes/dashboardRoutes');
 
 const app = express();
 
-const allowedOrigins = [ "http://localhost:5173", process.env.FRONTEND_URL, // https://bach-shop-frontend.vercel.app 
+const allowedOrigins = [ "http://localhost:5173", process.env.FRONTEND_URL, 
   ];
 
 
@@ -54,9 +54,6 @@ app.use('/api/v1/orders', orderRouter);
 app.use('/api/v1/subOrders', subOrderRouter);
 app.use('/api/v1/dashboard', dashboardRouter);
 
-app.all("/{*any}", (req, res, next) => {
-  next(new AppError(`Không tìm thấy ${req.originalUrl} trên server!`, 404));
-});
 
 app.use(globalErrorHandler);
 
