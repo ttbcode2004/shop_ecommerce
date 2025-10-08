@@ -2,7 +2,6 @@ const express = require('express');
 const morgan = require('morgan');
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const AppError = require("./utils/appError");
 const globalErrorHandler = require('./controllers/errorController');
 
 const productRouter = require('./routes/productRoutes');
@@ -19,16 +18,22 @@ const dashboardRouter = require('./routes/dashboardRoutes');
 
 const app = express();
 
-const allowedOrigins = [ "http://localhost:5173", process.env.FRONTEND_URL, 
-  ];
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://bach-shop-frontend.vercel.app",
+  process.env.FRONTEND_URL
+].filter(Boolean);
 
+console.log("Allowed Origins:", allowedOrigins);
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
+        console.log("❌ Blocked origin:", origin);
         callback(new Error("Not allowed by CORS"));
       }
     },
@@ -42,6 +47,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(morgan('dev'));
 
+// Routes
 app.use('/api/v1/users', userRouter);
 app.use('/api/v1/products', productRouter);
 app.use('/api/v1/vouchers', voucherRouter);
@@ -53,7 +59,6 @@ app.use('/api/v1/address', addressRouter);
 app.use('/api/v1/orders', orderRouter);
 app.use('/api/v1/subOrders', subOrderRouter);
 app.use('/api/v1/dashboard', dashboardRouter);
-
 
 app.use(globalErrorHandler);
 
