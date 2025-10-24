@@ -1,5 +1,7 @@
 FRONTEND: https://bach-shop-frontend.vercel.app/
-
+admin
+123@gmail.com
+12345678
  ⚙️ Công nghệ chính
 | Công nghệ              | Mô tả                                                                        |
 | ---------------------- | ---------------------------------------------------------------------------- |
